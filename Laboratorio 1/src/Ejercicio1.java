@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Ejercicio1 {
@@ -22,7 +23,23 @@ public class Ejercicio1 {
         else {
             mediana = calificaciones[n/2];
         }
+
+        HashMap<Double, Integer> frecuencia = new HashMap<>();
+        double moda = calificaciones[0];
+        int maxFrecuencia = 1;
+        
+        for (double calif : calificaciones) {
+            int count = frecuencia.getOrDefault(calif, 0) + 1;
+            frecuencia.put(calif, count);
+            
+            if (count > maxFrecuencia) {
+                maxFrecuencia = count;
+                moda = calif;
+            }
+        }
+
         System.out.println("Mediana: " + mediana);
+        System.out.println("Moda: " + moda);
 
         scan.close();
     }
