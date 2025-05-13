@@ -38,8 +38,21 @@ public class Ejercicio1 {
             }
         }
 
+        double suma = 0;
+        for (double calif : calificaciones) {
+            suma += calif;
+        }
+        double media = suma / n;
+        
+        double sumaDiferencias = 0;
+        for (double calif : calificaciones) {
+            sumaDiferencias += Math.pow(calif - media, 2);
+        }
+        double desviacionEstandar = Math.sqrt(sumaDiferencias / n);
+        
         System.out.println("Mediana: " + mediana);
         System.out.println("Moda: " + moda);
+        System.out.println("Desviación estándar: " + desviacionEstandar);
 
         scan.close();
     }
