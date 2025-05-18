@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Ejercicio1 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        Ejercicio1 iv = new Ejercicio1();
         
         System.out.print("Ingrese tamaño del vector: ");
         int n = scan.nextInt();
@@ -13,9 +14,16 @@ public class Ejercicio1 {
             vector[i] = scan.nextInt();
         }
         
+        int[] invertido = iv.invertirArray(vector);
+        
+        System.out.print("Vector invertido: ");
+        for (int num : invertido) {
+            System.out.print(num + " ");
+        }
+
         scan.close();
     }
-    
+
     public int[] invertirArray(int[] A) {
         invertirRecursivo(A, 0, A.length - 1);
         return A;
